@@ -1,0 +1,9 @@
+.nav {
+    grid-area: n;
+    background-color: rgba(22, 211, 236, 0.788);
+  }
+
+  .item {
+      color: rgb(190, 35, 126);
+      font-weight: 900;
+  }
