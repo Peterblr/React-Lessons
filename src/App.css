@@ -17,6 +17,7 @@
 }
 
 .header img {
+  opacity: 0.5;
   width: 100px;
 }
 
@@ -28,4 +29,8 @@
 .content {
   grid-area: c;
   background-color: rgba(32, 201, 187, 0.404);
+}
+
+.content img {
+  opacity: 0.5;
 }
