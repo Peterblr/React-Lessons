@@ -1,4 +1,9 @@
 .app-wrapper {
+  background-image: url(https://tinypng.com/images/social/website.jpg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  background-attachment: fixed;
   display: grid;
   width: 1200px;
   margin: 0 auto;

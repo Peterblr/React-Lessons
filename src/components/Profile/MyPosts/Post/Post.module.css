@@ -1,0 +1,8 @@
+.item {
+  color: rgb(35, 84, 190);
+  font-weight: 500;
+}
+
+.item img {
+  width: 40px;
+}
