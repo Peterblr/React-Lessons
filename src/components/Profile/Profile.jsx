@@ -8,11 +8,11 @@ function Profile() {
       <div>
         <img
           src={
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCaWqRLK82DhCclXVBt9QpcmSeSqBXEW_u5Q&usqp=CAU"
+            ""
             // "https://thelibertarianrepublic.com/wp-content/uploads/2017/04/WALL-E-1.jpg"
           }
           alt="img"
-          width="800px"
+          width="900px"
         />
       </div>
       <div>ava + description</div>
