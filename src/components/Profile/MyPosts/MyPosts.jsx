@@ -8,6 +8,8 @@ function MyPosts(props) {
         {id: 3, message: "It's cool", likesCount: 55},
     ]
 
+    let postsElement = postData.map(post => <Post message={post.message} id={post.id} likesCount={post.likesCount}/>);
+
     return (
         <div>
             <h3>My posts</h3>
@@ -20,10 +22,7 @@ function MyPosts(props) {
                 </div>
             </div>
             <div>new posts</div>
-            <Post message={postData[0].message} id={postData[0].id} likesCount={postData[0].likesCount}/>
-            <Post message={postData[1].message} id={postData[1].id} likesCount={postData[1].likesCount}/>
-            <Post message={postData[2].message} id={postData[2].id} likesCount={postData[2].likesCount}/>
-
+            {postsElement}
         </div>
     );
 }
