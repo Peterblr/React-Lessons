@@ -1,9 +1,9 @@
 import React from "react";
-import ss from "./Post.module.css";
+import s from "./Post.module.css";
 
 function Post(props) {
   return (
-    <div className={ss.item}>
+    <div className={s.item}>
       <img
         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSN1GxBgXGsMmeEqRJfxG2z0n3vc_OFa-lxXw&usqp=CAU"
         alt="img"
