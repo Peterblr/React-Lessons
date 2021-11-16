@@ -1,0 +1,33 @@
+.dialogs {
+    min-height: 600px;
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+    color: rgb(190, 35, 126);
+    font-weight: 900;
+}
+
+.dialogItems {
+    padding: 20px;
+}
+
+.dialog {
+    padding: 20px;
+}
+
+.dialogItems .active {
+    color: blue;
+    background-color: rgba(22, 211, 236, 0.788);
+    border-radius: 20px;
+}
+
+.messages {
+
+}
+
+.messages .message {
+    padding: 20px;
+    margin: 20px;
+    background-color: rgba(22, 211, 236, 0.788);
+    border-radius: 25px;
+    width: fit-content;
+}
