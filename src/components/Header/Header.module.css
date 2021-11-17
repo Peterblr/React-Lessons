@@ -3,6 +3,8 @@
   background-color: rgba(0, 0, 255, 0.548);
   background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCaWqRLK82DhCclXVBt9QpcmSeSqBXEW_u5Q&usqp=CAU");
   opacity: 0.6;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 .header img {

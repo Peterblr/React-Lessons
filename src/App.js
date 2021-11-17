@@ -9,6 +9,7 @@ import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
 
 import {BrowserRouter, Route} from "react-router-dom";
+import Friends from "./components/Friends/Friends";
 
 function App(props) {
 
@@ -23,6 +24,7 @@ function App(props) {
                     <Route exact path="/Music" render={() => <Music/>}/>
                     <Route exact path="/News" render={() => <News/>}/>
                     <Route exact path="/Settings" render={() => <Settings/>}/>
+                    <Route exact path="/Friends" render={() => <Friends/>}/>
                 </div>
             </div>
         </BrowserRouter>
