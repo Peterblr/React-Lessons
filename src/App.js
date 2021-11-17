@@ -18,10 +18,10 @@ function App(props) {
                 <Header/>
                 <Navbar/>
                 <div className="app-wrapper-content">
-                    <Route exact path="/Profile" render={() => <Profile postData={props.appState.postData}/>}/>
+                    <Route exact path="/Profile" render={() => <Profile postData={props.appState.profilePage.postData}/>}/>
                     <Route exact path="/Dialogs" render={() =>
-                        <Dialogs dialogsData={props.appState.dialogsData}
-                                 messagesData={props.appState.messagesData}
+                        <Dialogs dialogsData={props.appState.dialogsPage.dialogsData}
+                                 messagesData={props.appState.dialogsPage.messagesData}
                         />
                     }/>
                     <Route exact path="/Music" render={() => <Music/>}/>
