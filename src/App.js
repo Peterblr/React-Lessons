@@ -10,8 +10,6 @@ import Settings from "./components/Settings/Settings";
 
 import {BrowserRouter, Route} from "react-router-dom";
 
-
-
 function App() {
     return (
         <BrowserRouter>
@@ -19,15 +17,19 @@ function App() {
                 <Header/>
                 <Navbar/>
                 <div className="app-wrapper-content">
-                    <Route exact path="/Profile" component={Profile}/>
-                    <Route exact path="/Dialogs" component={Dialogs}/>
-                    <Route exact path="/Music" component={Music}/>
-                    <Route exact path="/News" component={News}/>
-                    <Route exact path="/Settings" component={Settings}/>
+                    {/*<Route exact path="/Profile" component={Profile}/>*/}
+                    {/*<Route exact path="/Dialogs" component={Dialogs}/>*/}
+                    {/*<Route exact path="/Music" component={Music}/>*/}
+                    {/*<Route exact path="/News" component={News}/>*/}
+                    {/*<Route exact path="/Settings" component={Settings}/>*/}
+                    <Route exact path="/Profile" render={() => <Profile/>}/>
+                    <Route exact path="/Dialogs" render={() => <Dialogs/>}/>
+                    <Route exact path="/Music" render={() => <Music/>}/>
+                    <Route exact path="/News" render={() => <News/>}/>
+                    <Route exact path="/Settings" render={() => <Settings/>}/>
                 </div>
             </div>
         </BrowserRouter>
-
     );
 }
 
