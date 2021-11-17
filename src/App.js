@@ -10,7 +10,13 @@ import Settings from "./components/Settings/Settings";
 
 import {BrowserRouter, Route} from "react-router-dom";
 
-function App() {
+function App(props) {
+    let postData = [
+        {id: 1, message: "Hello!", likesCount: 45},
+        {id: 2, message: "It's my favorite course.", likesCount: 71},
+        {id: 3, message: "It's cool", likesCount: 55},
+    ]
+
     return (
         <BrowserRouter>
             <div className="app-wrapper">
@@ -22,7 +28,7 @@ function App() {
                     {/*<Route exact path="/Music" component={Music}/>*/}
                     {/*<Route exact path="/News" component={News}/>*/}
                     {/*<Route exact path="/Settings" component={Settings}/>*/}
-                    <Route exact path="/Profile" render={() => <Profile/>}/>
+                    <Route exact path="/Profile" render={() => <Profile postData={postData}/>}/>
                     <Route exact path="/Dialogs" render={() => <Dialogs/>}/>
                     <Route exact path="/Music" render={() => <Music/>}/>
                     <Route exact path="/News" render={() => <News/>}/>
