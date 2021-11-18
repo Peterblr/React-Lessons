@@ -10,6 +10,7 @@ import Settings from "./components/Settings/Settings";
 
 import {BrowserRouter, Route} from "react-router-dom";
 import Friends from "./components/Friends/Friends";
+import {updateNewPostText} from "./redux/state";
 
 function App(props) {
 
@@ -21,7 +22,8 @@ function App(props) {
                 <div className="app-wrapper-content">
                     <Route exact path="/Profile" render={() => <Profile
                         state={props.appState.profilePage}
-                        addPost={props.addPost}/>}/>
+                        addPost={props.addPost}
+                        updateNewPostText={props.updateNewPostText}/>}/>
                     <Route exact path="/Dialogs" render={() => <Dialogs state={props.appState.dialogsPage}/>}/>
                     <Route exact path="/Music" render={() => <Music/>}/>
                     <Route exact path="/News" render={() => <News/>}/>
