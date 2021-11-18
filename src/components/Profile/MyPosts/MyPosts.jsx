@@ -4,9 +4,16 @@ import Post from "./Post/Post";
 function MyPosts(props) {
     let postsElement = props.postData.map(post => <Post message={post.message} id={post.id} likesCount={post.likesCount}/>);
 
+    let newPostElement = React.createRef();
+
     let addPost = () => {
-        let text = document.getElementById("new-post").value;
-        alert(text);
+        let text = newPostElement.current.value;
+        props.addPost(text);
+        newPostElement.current.value = "";
+    }
+
+    let onPostChange = () => {
+
     }
 
     return (
@@ -14,7 +21,7 @@ function MyPosts(props) {
             <h3>My posts</h3>
             <div>
                 <div>
-                    <textarea id={"new-post"}></textarea>
+                    <textarea onChange={onPostChange} ref={newPostElement} value={props.newPostText}/>
                 </div>
                 <div>
                     <button onClick={addPost}>Add Post</button>
