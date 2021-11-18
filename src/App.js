@@ -10,7 +10,6 @@ import Settings from "./components/Settings/Settings";
 
 import {BrowserRouter, Route} from "react-router-dom";
 import Friends from "./components/Friends/Friends";
-import {updateNewPostText} from "./redux/state";
 
 function App(props) {
 

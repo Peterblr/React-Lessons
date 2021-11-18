@@ -1,6 +1,5 @@
 import React from "react";
 import Post from "./Post/Post";
-import {updateNewPostText} from "../../../redux/state";
 
 function MyPosts(props) {
     let postsElement = props.postData.map(post => <Post message={post.message} id={post.id} likesCount={post.likesCount}/>);
@@ -8,8 +7,9 @@ function MyPosts(props) {
     let newPostElement = React.createRef();
 
     let addPost = () => {
-        let text = newPostElement.current.value;
-        props.addPost(text);
+        // let text = newPostElement.current.value;
+        // props.addPost(text);
+        props.addPost();
         props.updateNewPostText("");
     }
 
