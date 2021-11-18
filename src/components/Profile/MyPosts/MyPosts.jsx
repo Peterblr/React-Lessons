@@ -4,15 +4,20 @@ import Post from "./Post/Post";
 function MyPosts(props) {
     let postsElement = props.postData.map(post => <Post message={post.message} id={post.id} likesCount={post.likesCount}/>);
 
+    let addPost = () => {
+        let text = document.getElementById("new-post").value;
+        alert(text);
+    }
+
     return (
         <div>
             <h3>My posts</h3>
             <div>
                 <div>
-                    <textarea></textarea>
+                    <textarea id={"new-post"}></textarea>
                 </div>
                 <div>
-                    <button>Add Post</button>
+                    <button onClick={addPost}>Add Post</button>
                 </div>
             </div>
             <div>new posts</div>
