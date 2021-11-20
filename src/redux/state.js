@@ -1,8 +1,6 @@
-const ADD_POST = "ADD-POST";
-const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
-const ADD_MESSAGE = "ADD-MESSAGE";
-const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT";
-
+import ProfileReducer from "./profileReducer";
+import DialogsReducer from "./dialogsReducer";
+import SidebarReducer from "./sidebarReducer";
 
 let store = {
     _state: {
@@ -12,7 +10,7 @@ let store = {
                 {id: 2, message: "It's my favorite course.", likesCount: 71},
                 {id: 3, message: "It's cool", likesCount: 55},
             ],
-            newPostText: "Insert Message",
+            newPostText: "",
         },
         dialogsPage: {
             dialogsData: [
@@ -31,8 +29,9 @@ let store = {
                 {id: 3, message: "Are you fine?"},
                 {id: 4, message: "Yes. But..."},
             ],
-            newMessageText: "Insert Text Message",
-        }
+            newMessageText: "",
+        },
+        sidebar: {},
     },
     _callSubscriber() {
         console.log("Update!");
@@ -80,82 +79,91 @@ let store = {
     // },
 
     dispatch(action) {
-        switch(action.type) {
-            case ADD_POST:
-                let newPost = {
-                    id: 4,
-                    message: this._state.profilePage.newPostText,
-                    likesCount: 0,
-                };
-                this._state.profilePage.postData.push(newPost);
-                this._state.profilePage.newPostText = "";
-                this._callSubscriber(this._state);
-                break;
+        this._state.profilePage = ProfileReducer(this._state.profilePage, action);
+        this._state.dialogsPage = DialogsReducer(this._state.dialogsPage, action);
+        this._state.sidebar = SidebarReducer(this._state.sidebar, action);
+        this._callSubscriber(this._state);
 
-            case UPDATE_NEW_POST_TEXT:
-                this._state.profilePage.newPostText = action.newText;
-                this._callSubscriber(this._state);
-                break;
-
-            case ADD_MESSAGE:
-                let newMessage = {
-                    id: 5,
-                    message: this._state.dialogsPage.newMessageText,
-                };
-                this._state.dialogsPage.messagesData.push(newMessage);
-                this._state.dialogsPage.newMessageText = "";
-                this._callSubscriber(this._state);
-                break;
-
-            case UPDATE_NEW_MESSAGE_TEXT:
-                this._state.dialogsPage.newMessageText = action.newText;
-                this._callSubscriber(this._state);
-                break;
-
-            default:
-                console.log("Not found method!");
-        }
-        // if (action.type === "ADD-POST") {
-        //     let newPost = {
-        //         id: 4,
-        //         message: this._state.profilePage.newPostText,
-        //         likesCount: 0,
-        //     };
+        // switch (action.type) {
+        //     case ADD_POST:
+        //         let newPost = {
+        //             id: 4,
+        //             message: this._state.profilePage.newPostText,
+        //             likesCount: 0,
+        //         };
         //
-        //     this._state.profilePage.postData.push(newPost);
-        //     this._state.profilePage.newPostText = "";
-        //     this._callSubscriber(this._state);
-        // } else if (action.type === "UPDATE-NEW-POST-TEXT") {
-        //     this._state.profilePage.newPostText = action.newText;
+        //         this._state.profilePage.postData.push(newPost);
+        //         this._state.profilePage.newPostText = "";
+        //         this._callSubscriber(this._state);
+        //         break;
         //
-        //     this._callSubscriber(this._state);
+        //     case UPDATE_NEW_POST_TEXT:
+        //         this._state.profilePage.newPostText = action.newText;
+        //         this._callSubscriber(this._state);
+        //         break;
+        //
+        //     case ADD_MESSAGE:
+        //         let newMessage = {
+        //             id: 5,
+        //             message: this._state.dialogsPage.newMessageText,
+        //         };
+        //         this._state.dialogsPage.messagesData.push(newMessage);
+        //         this._state.dialogsPage.newMessageText = "";
+        //         this._callSubscriber(this._state);
+        //         break;
+        //
+        //     case UPDATE_NEW_MESSAGE_TEXT:
+        //         this._state.dialogsPage.newMessageText = action.newText;
+        //         this._callSubscriber(this._state);
+        //         break;
+        //
+        //     default:
+        //         console.log("Not found method!");
         // }
+        // // if (action.type === "ADD-POST") {
+        // //     let newPost = {
+        // //         id: 4,
+        // //         message: this._state.profilePage.newPostText,
+        // //         likesCount: 0,
+        // //     };
+        // //
+        // //     this._state.profilePage.postData.push(newPost);
+        // //     this._state.profilePage.newPostText = "";
+        // //     this._callSubscriber(this._state);
+        // // } else if (action.type === "UPDATE-NEW-POST-TEXT") {
+        // //     this._state.profilePage.newPostText = action.newText;
+        // //
+        // //     this._callSubscriber(this._state);
+        // // }
     }
 }
 
-export const addPostActionCreator = () => {
-    return {
-        type: ADD_POST
-    }
-}
-export const updateNewPostTextActionCreator = (text) => {
-    return {
-        type: UPDATE_NEW_POST_TEXT,
-        newText: text,
-    }
-}
 
-export const addMessageActionCreator = () => {
-    return {
-        type: ADD_MESSAGE
-    }
-}
 
-export const updateNewMessageTextActionCreator = (text) => {
-    return {
-        type: UPDATE_NEW_MESSAGE_TEXT,
-        newText: text
-    }
-}
+
+
+// export const addPostActionCreator = () => {
+//     return {
+//         type: ADD_POST
+//     }
+// }
+// export const updateNewPostTextActionCreator = (text) => {
+//     return {
+//         type: UPDATE_NEW_POST_TEXT,
+//         newText: text,
+//     }
+// }
+
+// export const addMessageActionCreator = () => {
+//     return {
+//         type: ADD_MESSAGE
+//     }
+// }
+// export const updateNewMessageTextActionCreator = (text) => {
+//     return {
+//         type: UPDATE_NEW_MESSAGE_TEXT,
+//         newText: text
+//     }
+// }
 
 export default store;

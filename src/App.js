@@ -22,13 +22,10 @@ function App(props) {
                     <Route exact path="/Profile" render={() => <Profile
                         state={props.appState.profilePage}
                         dispatch={props.dispatch}
-                        // updateNewPostText={props.updateNewPostText}
                     />}/>
                     <Route exact path="/Dialogs" render={() => <Dialogs
                         state={props.appState.dialogsPage}
                         dispatch={props.dispatch}
-                        // addMessage={props.addMessage}
-                        // updateNewMessageText={props.updateNewMessageText}
                     />}/>
                     <Route exact path="/Music" render={() => <Music/>}/>
                     <Route exact path="/News" render={() => <News/>}/>

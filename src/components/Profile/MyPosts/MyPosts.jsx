@@ -1,6 +1,7 @@
 import React from "react";
 import Post from "./Post/Post";
-import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redux/state";
+import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redux/profileReducer";
+import s from "./MyPosts.module.css";
 
 
 
@@ -10,14 +11,11 @@ function MyPosts(props) {
     let newPostElement = React.createRef();
 
     let addPost = () => {
-        // props.addPost();
         props.dispatch(addPostActionCreator());
     }
 
     let onPostChange = () => {
         let text = newPostElement.current.value;
-        // props.updateNewPostText(text);
-        // let action = {type: "UPDATE-NEW-POST-TEXT", newText: text};
         let action = updateNewPostTextActionCreator(text);
         props.dispatch(action);
     }
@@ -27,14 +25,21 @@ function MyPosts(props) {
             <h3>My posts</h3>
             <div>
                 <div>
-                    <textarea onChange={onPostChange} ref={newPostElement} value={props.newPostText}/>
+                    <textarea placeholder={"Enter your message"}
+                        className={s.textarea_MyPosts}
+                        onChange={onPostChange}
+                        ref={newPostElement}
+                        value={props.newPostText}/>
                 </div>
                 <div>
-                    <button onClick={addPost}>Add Post</button>
+                    <button className={s.btn_MyPosts} onClick={addPost}>Add Post</button>
                 </div>
             </div>
-            <div>new posts</div>
-            {postsElement}
+            <div>
+                New posts
+                {postsElement}
+            </div>
+
         </div>
     );
 }
