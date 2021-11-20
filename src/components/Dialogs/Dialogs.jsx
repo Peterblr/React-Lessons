@@ -3,7 +3,7 @@ import s from "./Dialogs.module.css"
 import DialogItem from "./DialogItem/DialogItem";
 import MessageItem from "./Message/MessageItem";
 
-const   Dialogs = (props) => {
+const Dialogs = (props) => {
 
     let dialogElements = props.state.dialogsData.map(dialog => <DialogItem id={dialog.id} name={dialog.name}/>);
 
@@ -12,12 +12,15 @@ const   Dialogs = (props) => {
     let newMessageElement = React.createRef();
 
     let addMessage = () => {
-        props.addMessage();
+        // props.addMessage();
+        props.dispatch({type: "ADD-MESSAGE"});
     }
 
     let onMessageChange = () => {
         let text = newMessageElement.current.value;
-        props.updateNewMessageText(text);
+        // props.updateNewMessageText(text);
+        let action = {type: "UPDATE-NEW-MESSAGE-TEXT", newText: text};
+        props.dispatch(action);
     }
 
     return (
