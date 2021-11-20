@@ -3,6 +3,7 @@ import s from "./Dialogs.module.css"
 import DialogItem from "./DialogItem/DialogItem";
 import MessageItem from "./Message/MessageItem";
 import {addMessageActionCreator, updateNewMessageTextActionCreator,} from "../../redux/dialogsReducer";
+import Button from "../Button/Button";
 
 
 const Dialogs = (props) => {
@@ -36,14 +37,12 @@ const Dialogs = (props) => {
                     <div>
                         <div>
                             <textarea placeholder={"Enter your message"}
-                                className={s.textarea_Dialogs}
+                                      className={s.textarea_Dialogs}
                                       onChange={onMessageChange}
                                       ref={newMessageElement}
                                       value={newMessageText}/>
                         </div>
-                        <div>
-                            <button className={s.btn_Dialogs} onClick={addMessage}>Add Message</button>
-                        </div>
+                        <Button onClick={addMessage}/>
                     </div>
                 </div>
             </div>

@@ -2,6 +2,7 @@ import React from "react";
 import Post from "./Post/Post";
 import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redux/profileReducer";
 import s from "./MyPosts.module.css";
+import Button from "../../Button/Button";
 
 
 
@@ -22,19 +23,21 @@ function MyPosts(props) {
 
     return (
         <div>
-            <h3>My posts</h3>
-            <div>
-                <div>
+            <h2>My posts</h2>
+            <div className={s.input_text}>
+
+                <div >
+                    <div>
                     <textarea placeholder={"Enter your message"}
-                        className={s.textarea_MyPosts}
-                        onChange={onPostChange}
-                        ref={newPostElement}
-                        value={props.newPostText}/>
-                </div>
-                <div>
-                    <button className={s.btn_MyPosts} onClick={addPost}>Add Post</button>
+                              className={s.textarea_MyPosts}
+                              onChange={onPostChange}
+                              ref={newPostElement}
+                              value={props.newPostText}/>
+                    </div>
+                    <Button onClick={addPost}/>
                 </div>
             </div>
+
             <div>
                 New posts
                 {postsElement}
