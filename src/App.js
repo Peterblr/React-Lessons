@@ -8,33 +8,46 @@ import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
 
-import {BrowserRouter, Route} from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 import Friends from "./components/Friends/Friends";
 
 function App(props) {
-
-    return (
-        <BrowserRouter>
-            <div className="app-wrapper">
-                <Header/>
-                <Navbar/>
-                <div className="app-wrapper-content">
-                    <Route exact path="/Profile" render={() => <Profile
-                        state={props.appState.profilePage}
-                        dispatch={props.dispatch}
-                    />}/>
-                    <Route exact path="/Dialogs" render={() => <Dialogs
-                        state={props.appState.dialogsPage}
-                        dispatch={props.dispatch}
-                    />}/>
-                    <Route exact path="/Music" render={() => <Music/>}/>
-                    <Route exact path="/News" render={() => <News/>}/>
-                    <Route exact path="/Settings" render={() => <Settings/>}/>
-                    <Route exact path="/Friends" render={() => <Friends/>}/>
-                </div>
-            </div>
-        </BrowserRouter>
-    );
+  return (
+    <BrowserRouter>
+      <div className="app-wrapper">
+        <Header />
+        <Navbar />
+        <div className="app-wrapper-content">
+          <Route
+            exact
+            path="/Profile"
+            render={() => (
+              <Profile
+                store={props.store}
+                // state={props.appState.profilePage}
+                // dispatch={props.dispatch}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/Dialogs"
+            render={() => (
+              <Dialogs
+                store={props.store}
+                // state={props.appState.dialogsPage}
+                // dispatch={props.dispatch}
+              />
+            )}
+          />
+          <Route exact path="/Music" render={() => <Music />} />
+          <Route exact path="/News" render={() => <News />} />
+          <Route exact path="/Settings" render={() => <Settings />} />
+          <Route exact path="/Friends" render={() => <Friends />} />
+        </div>
+      </div>
+    </BrowserRouter>
+  );
 }
 
 export default App;
