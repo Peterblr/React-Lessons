@@ -19,27 +19,28 @@ function App(props) {
         <Navbar />
         <div className="app-wrapper-content">
           <Route
+              exact
+              path="/Dialogs"
+              render={() => (
+                  <DialogsContainer
+                      // store={props.store}
+                      // state={props.appState.dialogsPage}
+                      // dispatch={props.dispatch}
+                  />
+              )}
+          />
+          <Route
             exact
             path="/Profile"
             render={() => (
               <Profile
-                store={props.store}
+                // store={props.store}
                 // state={props.appState.profilePage}
                 // dispatch={props.dispatch}
               />
             )}
           />
-          <Route
-            exact
-            path="/Dialogs"
-            render={() => (
-              <DialogsContainer
-                store={props.store}
-                // state={props.appState.dialogsPage}
-                // dispatch={props.dispatch}
-              />
-            )}
-          />
+
           <Route exact path="/Music" render={() => <Music />} />
           <Route exact path="/News" render={() => <News />} />
           <Route exact path="/Settings" render={() => <Settings />} />
