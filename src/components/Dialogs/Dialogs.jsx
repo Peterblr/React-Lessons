@@ -2,6 +2,7 @@ import React from "react";
 import s from "./Dialogs.module.css";
 import DialogItem from "./DialogItem/DialogItem";
 import MessageItem from "./Message/MessageItem";
+import Button from "../Button/Button";
 
 const Dialogs = (props) => {
   let state = props.dialogsPage;
@@ -46,9 +47,7 @@ const Dialogs = (props) => {
               />
             </div>
             <div>
-              <button className={s.btn_Dialogs} onClick={addMessage}>
-                Add Message
-              </button>
+              <Button onClick={addMessage} />
             </div>
           </div>
         </div>

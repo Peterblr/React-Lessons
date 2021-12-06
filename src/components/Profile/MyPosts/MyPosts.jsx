@@ -1,6 +1,7 @@
 import React from "react";
 import Post from "./Post/Post";
 import s from "./MyPosts.module.css";
+import Button from "../../Button/Button";
 
 function MyPosts(props) {
   let postsElement = props.postData.map((post) => (
@@ -35,9 +36,7 @@ function MyPosts(props) {
           />
         </div>
         <div>
-          <button className={s.btn_MyPosts} onClick={onAddPost}>
-            Add Post
-          </button>
+          <Button onClick={onAddPost} />
         </div>
       </div>
       <div>
